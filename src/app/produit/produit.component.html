@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Liste des produit</h1>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let p of listProdcut; let index">
+      id: {{ p.id }}, titre: {{ p.title }},
+      <a [routerLink]="['detail', p.id]">détails</a>
+    </li>
+  </ul>
+</div>
