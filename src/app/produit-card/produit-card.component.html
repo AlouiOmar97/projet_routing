@@ -1,0 +1,32 @@
+<div
+  class="card"
+  style="width: 18rem"
+  *ngIf="
+    maxPrice == null || maxPrice == 0 || (maxPrice > 0 && prod.price < maxPrice)
+  "
+>
+  <img src="/assets/produit.jpg" class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">{{ prod.title }}</h5>
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </p>
+    <p *ngIf="modifiedPrice">Prix modifié: {{ modifiedPrice }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <b>Prix:</b> <span class="offset-9">{{ prod.price }}</span>
+    </li>
+    <li class="list-group-item">
+      <b>Quantité:</b> <span class="offset-7">{{ prod.quantity }}</span>
+    </li>
+    <li class="list-group-item">
+      <b>Likes:</b> <span class="offset-9">{{ prod.like }}</span>
+    </li>
+  </ul>
+  <div class="card-body">
+    <button class="btn btn-primary m-2" [disabled]="!prod.quantity">Buy</button>
+    <button class="btn btn-primary offset-6" (click)="likeProd()">Like</button>
+  </div>
+</div>

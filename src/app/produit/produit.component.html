@@ -1,9 +1,33 @@
 <div class="container">
-  <h1>Liste des produit</h1>
-  <ul class="list-group">
+  <h1>Liste des produits</h1>
+  <!-- <ul class="list-group">
     <li class="list-group-item" *ngFor="let p of listProdcut; let index">
       id: {{ p.id }}, titre: {{ p.title }},
       <a [routerLink]="['detail', p.id]">détails</a>
     </li>
-  </ul>
+  </ul> -->
+  <input
+    type="number"
+    class="form-control"
+    placeholder="Prix maximal"
+    [(ngModel)]="priceMax"
+  />
+
+  <div class="row">
+    <app-produit-card
+      class="col-3 m-3"
+      *ngFor="let p of listProdcut; let index"
+      [maxPrice]="priceMax"
+      [modifiedPrice]="priceMax"
+      [prod]="p"
+      (likesEvent)="likeProduit($event)"
+    ></app-produit-card>
+  </div>
+  <app-produit-card hidden #pr></app-produit-card>
+  <button (click)="pr.start()" class="btn btn-primary">
+    {{ pr.childText }}
+  </button>
+  <button (click)="startParent()" class="btn btn-success">
+    {{ parentText }}
+  </button>
 </div>

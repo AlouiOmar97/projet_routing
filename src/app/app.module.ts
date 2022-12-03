@@ -13,6 +13,7 @@ import { DetailComponent } from './detail/detail.component';
 import { AnnonceModule } from './annonce/annonce.module';
 import { AddProduitComponent } from './add-produit/add-produit.component';
 import { FormsModule } from '@angular/forms';
+import { ProduitCardComponent } from './produit-card/produit-card.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     PagenotfoundComponent,
     DetailComponent,
-    AddProduitComponent
+    AddProduitComponent,
+    ProduitCardComponent
   ],
   imports: [
     BrowserModule,
