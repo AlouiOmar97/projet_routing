@@ -14,6 +14,10 @@ import { AnnonceModule } from './annonce/annonce.module';
 import { AddProduitComponent } from './add-produit/add-produit.component';
 import { FormsModule } from '@angular/forms';
 import { ProduitCardComponent } from './produit-card/produit-card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
+import { ToDoListComponent } from './to-do-list/to-do-list.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +29,16 @@ import { ProduitCardComponent } from './produit-card/produit-card.component';
     PagenotfoundComponent,
     DetailComponent,
     AddProduitComponent,
-    ProduitCardComponent
+    ProduitCardComponent,
+    ToDoListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AnnonceModule,
     AppRoutingModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -24,10 +24,13 @@
     ></app-produit-card>
   </div>
   <app-produit-card hidden #pr></app-produit-card>
-  <button (click)="pr.start()" class="btn btn-primary">
+  <button (click)="pr.start()" class="btn btn-primary m-3">
     {{ pr.childText }}
   </button>
-  <button (click)="startParent()" class="btn btn-success">
+  <button (click)="startParent()" class="btn btn-success m-3">
     {{ parentText }}
   </button>
+  <button (click)="getZeroStock()" class="btn btn-danger m-3">Get Number of product with 0 quantity</button>
+  <div *ngIf="zeroStock" class="alert alert-danger"> <b>Number of product with 0 quantity: </b> {{zeroStock}} </div>
+
 </div>

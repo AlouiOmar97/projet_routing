@@ -6,12 +6,14 @@ import { ProduitComponent } from './produit/produit.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { DetailComponent } from './detail/detail.component';
 import { AddProduitComponent } from './add-produit/add-produit.component';
+import { ToDoListComponent } from './to-do-list/to-do-list.component';
 const ROUTES: Routes=[
   {path:"", redirectTo:"home", pathMatch:"full"},
   {path:"home", component:HomeComponent},
   {path:"produit/detail/:id", component: DetailComponent},
   {path:"produit/add", component: AddProduitComponent},
   {path:"produit", component: ProduitComponent},
+  {path:"todo", component: ToDoListComponent},
   {path:"**", component:PagenotfoundComponent}
 ]
 @NgModule({

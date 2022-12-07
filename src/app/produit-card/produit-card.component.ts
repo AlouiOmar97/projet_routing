@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Product } from '../model/Product';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-produit-card',
@@ -25,14 +26,14 @@ export class ProduitCardComponent implements OnInit, OnChanges {
 
 
   @Output() likesEvent=new EventEmitter<Product>();
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
 
   ngOnChanges(changes: SimpleChanges){
   console.log(changes);
-
+  this.toastr.success('Previous value: '+changes.maxPrice.previousValue, 'Changes detected!' );
   }
 
   likeProd(){
