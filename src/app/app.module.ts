@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { AnnonceAppRoutingModule } from './annonce/annonce-app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { EditProduitComponent } from './edit-produit/edit-produit.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +32,15 @@ import { ToDoListComponent } from './to-do-list/to-do-list.component';
     DetailComponent,
     AddProduitComponent,
     ProduitCardComponent,
-    ToDoListComponent
+    ToDoListComponent,
+    EditProduitComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AnnonceModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
   ],

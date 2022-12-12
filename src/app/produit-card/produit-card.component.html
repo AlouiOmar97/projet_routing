@@ -24,6 +24,12 @@
     <li class="list-group-item">
       <b>Likes:</b> <span class="offset-9">{{ prod.like }}</span>
     </li>
+    <li class="list-group-item">
+      <a class="btn btn-primary" [routerLink]="['edit', prod.id]">Edit</a>
+    </li>
+    <li class="list-group-item">
+      <button class="btn btn-danger" (click)="deleteProd(prod.id)">Delete</button>
+    </li>
   </ul>
   <div class="card-body">
     <button class="btn btn-primary m-2" [disabled]="!prod.quantity">Buy</button>

@@ -1,0 +1,79 @@
+<div class="container">
+    <h1>Ajouter un produit</h1>
+    <form #f="ngForm">
+      <div class="mb-3">
+        <label for="title" class="form-label">Titre</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="product.title"
+          #title="ngModel"
+          required
+          minlength="4"
+          id="title"
+          name="title"
+          aria-describedby="titleHelp"
+        />
+        <div id="titleHelp" class="form-text">
+          Veuillez saisir le titre de votre produit.
+        </div>
+        <div
+          *ngIf="title.invalid && (title.dirty || title.touched)"
+          class="alert alert-danger"
+        >
+          <div *ngIf="title.errors?.['required']">Name is required.</div>
+          <div *ngIf="title.errors?.['minlength']">
+            Name must be at least 4 characters long.
+          </div>
+        </div>
+        <p *ngIf="numberCtrl.invalid && (numberCtrl.dirty || numberCtrl.touched)">
+          Numbers are invalid.
+        </p>
+        <div class="form-group" ngModelGroup="product" #numberCtrl="ngModelGroup">
+          <div class="mb-3">
+            <label for="price" class="form-label">Prix</label>
+            <input
+              type="number"
+              [(ngModel)]="product.price"
+              #price="ngModel"
+              class="form-control"
+              id="price"
+              name="price"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="quantity" class="form-label">Quantité</label>
+            <input
+              type="number"
+              [(ngModel)]="product.quantity"
+              #quantity="ngModel"
+              class="form-control"
+              id="quantity"
+              name="quantity"
+              min="0"
+              max="10"
+              required
+            />
+          </div>
+          <div
+            *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)"
+            class="alert alert-danger"
+          >
+            <div *ngIf="quantity.errors?.['required']">Quantité is required.</div>
+            <div *ngIf="quantity.errors?.['max']">Quantité maximale est 10.</div>
+            <div *ngIf="quantity.errors?.['min']">Quantité minimale est 0.</div>
+          </div>
+        </div>
+      </div>
+      <button
+        type="submit"
+        [disabled]="f.invalid"
+        (click)="editProduct()"
+        class="btn btn-primary"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
